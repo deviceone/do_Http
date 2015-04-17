@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace do_Http.extdefine
 {
-    public abstract class do_Http_MAbstract : doUIModule
+    public abstract class do_Http_MAbstract : doMultitonModule
     {
         protected do_Http_MAbstract()
             : base()

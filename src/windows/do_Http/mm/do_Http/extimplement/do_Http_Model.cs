@@ -11,7 +11,7 @@ namespace do_Http.extimplement
     /// <summary>
     /// 自定义扩展组件Model实现，继承@TYPEID_MAbstract抽象类；
     /// </summary>
-    public class do_Http_Model : do_Http_MAbstract
+    public class do_Http_Model : do_Http_MAbstract, do_Http_IMethod
     {
         public do_Http_Model()
             : base()
@@ -20,16 +20,11 @@ namespace do_Http.extimplement
         public override void OnInit()
         {
             base.OnInit();
-            this.RegistProperty(new doProperty("text", PropertyDataType.String, "", false));
-            this.RegistProperty(new doProperty("fontColor", PropertyDataType.String, "000000FF", false));
-            this.RegistProperty(new doProperty("textAlign", PropertyDataType.String, "left", true));
-            this.RegistProperty(new doProperty("fontStyle", PropertyDataType.String, "normal", false));
-            this.RegistProperty(new doProperty("fontSize", PropertyDataType.Number, "9", false));
-            this.RegistProperty(new doProperty("autoSize", PropertyDataType.Bool, "false", true));
-            this.RegistProperty(new doProperty("maxWidth", PropertyDataType.Number, "100", true));
-            this.RegistProperty(new doProperty("maxHeight", PropertyDataType.Number, "100", true));
-            this.RegistProperty(new doProperty("maxLines", PropertyDataType.Number, "3", true));
-        
+            this.RegistProperty(new doProperty("method", PropertyDataType.String, "", false));
+            this.RegistProperty(new doProperty("url", PropertyDataType.String, "", false));
+            this.RegistProperty(new doProperty("timeout", PropertyDataType.Number, "5000", false));
+            this.RegistProperty(new doProperty("contentType", PropertyDataType.String, "text/html", false));
+            this.RegistProperty(new doProperty("body", PropertyDataType.String, "", false));
         }
         public override async Task<bool> InvokeAsyncMethod(string _methodName, doCore.Helper.JsonParse.doJsonNode _dictParas, doCore.Interface.doIScriptEngine _scriptEngine, string _callbackFuncName)
         {
